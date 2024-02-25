@@ -65,7 +65,7 @@ module.exports = async (req, res) => {
         allTransactions.sort((a, b) => {
             if (a.status.confirmed && !b.status.confirmed) return 1;
             if (!a.status.confirmed && b.status.confirmed) return -1;
-            return a.status.block_time - b.status.block_time;
+            return b.status.block_time - a.status.block_time;
         });
 
         res.status(200).json(allTransactions);
